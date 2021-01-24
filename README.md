@@ -15,3 +15,9 @@
   <div align="center">
     <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/app_screenshot.JPG" width="1000px" height="500px"</img> 
 </div>
+
+  App is capable of posting sensor data as JSON api with readings, sensor type and unix timestamp as input paramters.
+  <div align="center">
+    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/post_save_success.JPG" width="1000px" height="500px"</img> 
+</div>
+  
