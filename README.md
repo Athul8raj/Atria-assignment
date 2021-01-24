@@ -34,3 +34,8 @@
     <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/table%20and%20chart.JPG" width="1000px" height="500px"</img> 
 </div> 
   
+  ## Authentication and CSRF attack prevention -
+    Authentication and CSRF prevention is handled based on token and is added to request header and verified by django rest session authentication
+    User input sanitation is handled only at a basic level.
+    
+  
