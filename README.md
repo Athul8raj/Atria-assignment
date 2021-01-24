@@ -5,3 +5,6 @@
 ## Frameworks used - 
   Frontend - React library  
   Backend - Django REST
+  
+## Libraries used - 
+  React - 
