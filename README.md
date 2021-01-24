@@ -23,5 +23,5 @@
 
   User can query sensor data using the query panel by providing the sensor type and date range
   <div align="center">
-    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/query request.JPG" width="1000px" height="500px"</img> 
+    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/query%20request.jpg" width="1000px" height="500px"</img> 
 </div>  
