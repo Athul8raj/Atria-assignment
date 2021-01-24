@@ -35,7 +35,18 @@
 </div> 
   
   ## Authentication and CSRF attack prevention -
-    Authentication and CSRF prevention is handled based on token and is added to request header and verified by django rest session authentication
-    User input sanitation is handled only at a basic level.
+   Authentication and CSRF prevention is handled based on token and is added to request header and verified by django rest session authentication
+   User input sanitation is handled only at a basic level.
+   
+  ## Docker Support - 
+  Backend can be hosted on docker containers with the help of docker images built via the dockerfile. 
+  
+  ## PS -
+      1) Frontend - Query API will work even if "from" and "to" dates are not provided by the user (mentioned in backend code specifying the handling).
+                    Infinite scrolling/ Line Chart scaling - If query result gives too many data points, displaying them all at once might affect UI/UX experience. This is not                       taken care currently
+                    Custom erro page shown when visting unknown urls
+      2) Backend (Django + DB) - 400 bad request in case of bad paramters or post data not valid
+                                 SQLite DB - although lightweight and in-memory, not ideal for sensor data posted every second(or milliseconds)
+                                 
     
   
