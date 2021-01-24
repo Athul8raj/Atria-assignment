@@ -44,7 +44,7 @@
   ## PS -
       1) Frontend - Query API will work even if "from" and "to" dates are not provided by the user (mentioned in backend code specifying the handling).
                     Infinite scrolling/ Line Chart scaling - If query result gives too many data points, displaying them all at once might affect UI/UX experience. This is not                       taken care currently
-                    Custom erro page shown when visting unknown urls
+                    Custom error page shown when visting unknown urls
       2) Backend (Django + DB) - 400 bad request in case of bad paramters or post data not valid
                                  SQLite DB - although lightweight and in-memory, not ideal for sensor data posted every second(or milliseconds)
                                  
