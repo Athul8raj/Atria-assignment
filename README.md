@@ -26,5 +26,8 @@
     <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/query%20request.jpg" width="1000px" height="500px"</img> 
 </div>  
 
-  Once the query is success( readings are present for the given time range), same will be shown in the <b>Line chart</b> and </b>Table</b>  
+  Once the query is success( readings are present for the given time range), same will be shown in the <b>Line chart</b> and <b>Table</b>  
+  <div align="center">
+    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/table%20and%20chart.JPG" width="1000px" height="500px"</img> 
+</div> 
   
