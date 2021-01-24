@@ -1,6 +1,6 @@
 # Atria-assignment
 
-# Simple App for posting and querying sensor data
+## Simple App for posting and querying sensor data with chart and table display
 
 ## Frameworks used - 
   Frontend - React library  
