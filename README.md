@@ -6,6 +6,9 @@
   Frontend - React library  
   Backend - Django REST
   
+## Database used - 
+  SQLITE - Django default backend
+  
 ## Libraries used - 
   React - react-moment, react-router-dom, material-ui, recharts, axios  
   Django REST - rest_framework, django, numpy, gunicorn (for docker hosting)
