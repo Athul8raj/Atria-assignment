@@ -12,7 +12,6 @@
 
 ## About the app - 
   Frontend is hosted at 3000 and backend at 8000.
-  ![Alt text](https://github.com/Athul8raj/Atria-assignment/blob/main/images/app_screenshot.JPG "Optional Title")
   <div align="center">
-    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/app_screenshot.JPG" width="400px"</img> 
+    <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/app_screenshot.JPG" width="1000px" height="500px"</img> 
 </div>
