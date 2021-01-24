@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     'sensor',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken'
 ]
 
 CORS_ORIGIN_WHITELIST = [
@@ -106,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
 
 
 # Internationalization

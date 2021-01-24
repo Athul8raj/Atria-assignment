@@ -2,25 +2,21 @@ import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './Title';
+import moment from 'moment';
 
 function createData(time, amount) {
+  time = moment(time).format('MMM DD, YYYY HH:MM:SS');
   return { time, amount };
 }
 
-const data = [
-  createData('Jan 2020', 0),
-  createData('Feb 2020', 300),
-  createData('Mar 2020', 600),
-  createData('Apr 2020', 800),
-  createData('Jun 2020', 1500),
-  createData('Jul 2020', 2000),
-  createData('Aug 2020', 2400),
-  createData('Sept 2020', 2400),
-  createData('Oct 2020', undefined),
-];
-
 const Chart = ({sensor,details}) => {
   const theme = useTheme();
+
+  const data = []
+  details.map((detail) => {
+    data.push(createData(detail[1],detail[0]))
+    return ''
+  })
 
   return (
     <React.Fragment>

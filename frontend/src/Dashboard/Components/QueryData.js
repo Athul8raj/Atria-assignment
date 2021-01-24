@@ -63,9 +63,13 @@ const signal = axios.CancelToken.source()
                 <Grid item xs={12} align="center">
                 <Button variant="contained" color="primary" onClick={handleSubmit}>Query</Button>
                 </Grid>
-                {close && <Grid item xs={12} align="center">
-                <Typography>&#9679; Min - {stats[0]} &#9679; Max - {stats[1]} &#9679; Mean - {stats[2]}</Typography>
-                </Grid>}
+                {close && ( <Grid container spacing={1}>
+                  <Grid item xs={12}>
+                  <Typography>&#9679; Min - {stats[0]}</Typography>
+                  <Typography>&#9679; Max - {stats[1]}</Typography>
+                  <Typography>&#9679; Mean - {stats[2]}</Typography>
+                </Grid>
+                </Grid>)}
             </Grid>
     </React.Fragment>
   );

@@ -1,11 +1,17 @@
 import axios from 'axios'
 
 const backend_url = `http://localhost:8000/`
+const Token = '9054f7aa9305e012b3c2300408c3dfdf390fcddf'
 
 const post_sensor_data = async (request) => {
+    const headers = {
+        'Authorization': `Token ${Token}`,
+        'Content-Type': 'application/json',
+        "X-CSRFToken": `${Token}`,
+      }
     const URI = `${backend_url}sensor/`
     try {
-        const resp = await axios.post(URI,request)
+        const resp = await axios.post(URI,request,{headers:headers})
 
         return resp
     }
@@ -16,8 +22,13 @@ const post_sensor_data = async (request) => {
 
 const get_sensors = async (token) => {
     const URI = `${backend_url}get-sensors/`
+    const headers = {
+        'Authorization': `Token ${Token}`,
+        'Content-Type': 'application/json',
+        "X-CSRFToken": Token,
+      }
     try {
-        const resp = await axios.get(URI,{token})
+        const resp = await axios.get(URI,{"headers":headers,token})
 
         return resp
     }
@@ -26,10 +37,15 @@ const get_sensors = async (token) => {
     }
 }
 
-const query_data = async (type,from,to,token) => {
+const query_data = async (type,from,to) => {
+    const headers = {
+        'Authorization': `Token ${Token}`,
+        'Content-Type': 'application/json',
+        "X-CSRFToken": Token,
+      }
     const URI = `${backend_url}sensor/?type=${type}&from=${from}&to=${to}`
     try {
-        const resp = await axios.get(URI,{token})
+        const resp = await axios.get(URI,{'headers':headers})
 
         return resp
     }
