@@ -28,6 +28,14 @@ const signal = axios.CancelToken.source()
       handleDetails(resp.data['details'])
       handleQuery()
       handleStats(resp.data['stats'])
+      const event = {
+        target : {
+            value: ''
+        }
+    }
+    handleType(event)
+    // handleFrom(event)
+    // handleTo(event)
     }
 }
 

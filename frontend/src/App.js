@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Switch>
       <Route path="/" component={Dashboard} exact />
-      <Route component={NotFound} />
+      <Route component={NotFound} /> {/* for all other url routes show 404 page*/}
       <Redirect to="/error" />
       </Switch>
     </div>

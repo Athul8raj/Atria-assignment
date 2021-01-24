@@ -1,14 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles,fade } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-// import Badge from '@material-ui/core/Badge';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import Chart from './Chart';
 import Query from './QueryData';
 import TableData from './TableData';
@@ -16,15 +8,12 @@ import FormData from './Form'
 import Layout from '../../Layout'
 import axios from 'axios'
 import { get_sensors,query_data } from '../../Services'
-import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Button from '@material-ui/core/Button';
 import { useTheme } from '@material-ui/core/styles';
+import {Dialog, DialogActions, DialogContent, DialogTitle,
+        Button, Paper, Grid, Container, Link, Box, Typography,
+         CssBaseline, Snackbar } from '@material-ui/core'
 
 export function Copyright() {
   return (
@@ -167,23 +156,27 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm')); // for Dialog Box
+  //for post
   const [reading,setReading] = useState('')
   const [post_type,setPostType] = useState('')
-  const [query_type,setQueryType] = useState('')
   const [timestamp,setTimestamp] = useState('')
-  const [sensorTypes,setSensorTypes]= useState([])
+  //for query
+  const [query_type,setQueryType] = useState('') 
   const [from,setFrom] = useState(Date.now())
   const [to,setTo] = useState(Date.now())
-  const [notify,setNotify] = useState(false)
-  const [sensor,setSensor] = useState('Temparature')
+
+  const [sensorTypes,setSensorTypes]= useState([]) // for sensor type dropdown  
+  const [notify,setNotify] = useState(false) // alert
+  const [notifyMsg,setNotifyMsg] = useState('') //alert msg
+  const [sensor,setSensor] = useState('Temparature') // for chart and table header
   const [details,setDetails] = useState([])
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState(false);
   const [stats,setStats] = useState([])
   const [close,setClose] = useState(false)
   
-
+  // for handling various events
   const handleReading = (event) => {
       setReading(event.target.value)
   }
@@ -215,6 +208,7 @@ export default function Dashboard() {
     setSensor(type)
   }
 
+  // sending get API request to backend on component mount for getting sensor types in dropdowns
   useEffect(() => {
     const signal = axios.CancelToken.source();
     const handleSensors = async () => {
@@ -231,8 +225,9 @@ export default function Dashboard() {
     handleSensors()
   },[])
 
-  const handleNotify = () => {
+  const handleNotify = (msg) => {
     setNotify(true)
+    setNotifyMsg(msg)
   }
 
   const handleClose = (event, reason) => {
@@ -247,6 +242,7 @@ export default function Dashboard() {
     setDetails(detail_list)
   }
 
+  // sending get API request to backend on component mount for getting temperature detilas in chart nad table as default
   useEffect(() => {
     const signal = axios.CancelToken.source();
     const handleTempData = async () => {
@@ -299,7 +295,7 @@ export default function Dashboard() {
               <Snackbar open={notify} autoHideDuration={10000} onClose={handleClose} anchorOrigin={{ vertical: 'top',
                   horizontal: 'right', }}>
               <Alert onClose={handleClose} severity="success">
-                Data has been saved successfully!
+                {notifyMsg}
               </Alert>
             </Snackbar>
             </Grid>
