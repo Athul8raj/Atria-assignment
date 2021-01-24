@@ -11,7 +11,7 @@
   Django REST - rest_framework, django, numpy, gunicorn (for docker hosting)
 
 ## About the app - 
-  Frontend is hosted at 3000 and backend at 8000.
+  Frontend is hosted at 3000 and backend at 8000. By default,app shows temperature sensor data in chart and table on component mount
   <div align="center">
     <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/app_screenshot.JPG" width="1000px" height="500px"</img> 
 </div>  
@@ -25,3 +25,6 @@
   <div align="center">
     <img src="https://github.com/Athul8raj/Atria-assignment/blob/main/images/query%20request.jpg" width="1000px" height="500px"</img> 
 </div>  
+
+  Once the query is success( readings are present for the given time range), same will be shown in the <b>Line chart</b> and </b>Table</b>  
+  
