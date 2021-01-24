@@ -70,18 +70,23 @@ class SensorView(APIView):
             success - serializer response
             error - 400 bad request
         '''
-        timestamp = datetime.utcfromtimestamp(int(
-                        request.data['timestamp'])/10**3) # Dividing the
-                                # microseconds to get a valid unix timestamp
-        sensor = Sensor.objects.filter(sensor_type=request.data['type'])
-        data = {'timestamp':timestamp,'reading':float(request.data['reading']),
-                'sensor_type':sensor.first().id}
-        serializer = SensorDataSerializer(data=data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response({'data': serializer.data,'status':HTTP_200_OK})
+        try:
+            timestamp = datetime.utcfromtimestamp(int(
+                            request.data['timestamp'])/10**3) # Dividing the
+                                    # microseconds to get a valid unix timestamp
+        except OSError:
+            return Response({'error':'Timestamp not entered correct','status':HTTP_400_BAD_REQUEST})
         else:
-            return Response({'error':'Bad Request','status':HTTP_400_BAD_REQUEST})
+            sensor = Sensor.objects.filter(sensor_type=request.data['type'])
+            data = {'timestamp':timestamp,'reading':float(request.data['reading']),
+                    'sensor_type':sensor.first().id}
+            serializer = SensorDataSerializer(data=data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+                return Response({'data': serializer.data,'status':HTTP_200_OK})
+            else:
+                return Response({'error':'Bad Request','status':HTTP_400_BAD_REQUEST})
+
 
 
 class GetSensorView(generics.ListCreateAPIView):
